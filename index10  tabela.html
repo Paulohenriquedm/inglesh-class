@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de produtos</title>
+
+    <style>
+        h1{
+            text-align: center;
+            margin: auto;
+        }
+
+        body{
+            background-image: url(imagem/walk.gif);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .tabela-container{
+            width: 80%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgb(36, 0, 240);
+            box-shadow: 10px 10px 10px black;
+            border-radius: 10px;
+            overflow-x: auto; /*permitir rolagem no sentido horizontal*/
+        }
+
+        table{
+            width: 80%;
+            /* a linha abaixo elimina a dupla linha da borda, deixando apenas uma */
+            border-collapse: collapse;
+            margin: 15px auto;      
+            background-color: rgb(243, 224, 183);
+        }
+
+        th, td{
+            padding: 5px;
+            border: 5px solid rgba(17, 255, 77, 0.925);
+            text-align: center;
+        }
+
+        .coluna_valor{
+            text-align: right;
+        }
+
+        tbody tr:nth-child(even) {
+    background-color: rgb(255, 25, 25);
+        }
+
+        tbody tr:nth-child(odd) {
+    background-color: yellow;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <h1>Tabela De Produtos</h1>
+<div class="tabela-container">
+    <table border="1">
+<!--            TITULO DA TABELA -->
+            <thead>
+        <tr>
+            <th>ID</th>
+            <th>PRODUTO</th>
+            <th>VALOR</th>
+        </tr>
+
+            </thead>
+            <!-- DADOS DA TABELA -->
+             <tbody>
+        <tr>
+            <td>1</td>
+            <td>SACOLA</td>
+            <td class="coluna_valor">15</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>JANELA</td>
+            <td class="coluna_valor">23</td>
+        </tr>        
+
+        <tr>
+            <td>3</td>
+            <td>PORTA</td>
+            <td class="coluna_valor">57</td>
+        </tr>
+
+                <tr>
+            <td>2</td>
+            <td>JANELA</td>
+            <td class="coluna_valor">23</td>
+        </tr>        
+
+        <tr>
+            <td>3</td>
+            <td>PORTA</td>
+            <td class="coluna_valor">57</td>
+        </tr>
+
+                <tr>
+            <td>2</td>
+            <td>JANELA</td>
+            <td class="coluna_valor">23</td>
+        </tr>        
+
+        <tr>
+            <td>3</td>
+            <td>PORTA</td>
+            <td class="coluna_valor">57</td>
+        </tr>
+
+                <tr>
+            <td>2</td>
+            <td>JANELA</td>
+            <td class="coluna_valor">23</td>
+        </tr>        
+
+        <tr>
+            <td>3</td>
+            <td>PORTA</td>
+            <td class="coluna_valor">57</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

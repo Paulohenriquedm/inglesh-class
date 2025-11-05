@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+            /* estilo geral da pagina */
+            * { box-sizing: border-box;
+            }
+
+            body{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 70px;
+                background: whitesmoke;
+                color: #222;
+            }
+
+            .container{
+                max-width: 900px;
+                margin: 0 auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 6px 18px  rgb(77, 76, 76);
+            }
+
+            h1{
+                margin: 0 0 8px 0;
+                color: #003366;
+                text-align: center;
+            }
+
+            .p.apres {
+                margin-top: 0;
+                color: #555;
+                text-align: center;
+
+            }
+            /* layout do formulario que comtempla o input+botao */
+            .form-row{
+                display: flex;
+                gap: 10px;
+                margin-top: 18px;
+            }
+
+            input[type="text"]{
+                flex: 1;
+                padding: 10px 12px;
+                font-size: 16px;
+                border: 1px solid #cfd8e3;
+                border-radius: 6px;
+            }
+
+            button.btn{
+                background: #0055cc;
+                color: #fff;
+                border:none;
+                padding: 10px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: 600;
+            }
+
+            button.btn:hover { background: #0042a8}
+
+            .todo-card {
+                margin-top: 20px;
+                padding: 14px;
+                border-radius: 8px;
+                background: #f0f7ff;
+                border: 1px solid #dbe9ff;
+            }
+
+            ul.todo-list{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+            }
+
+            ul.todo-list li{
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 10px;
+                border-bottom: 1px dashed black;
+            }
+
+            ul.todo-list li:last-child {border-bottom: none;}
+
+            .task-text{
+                flex: 1;
+                font-size: 16px;
+                color: #222;
+            }
+            /* estilo quando a tarefa estiver marcada como concluida */
+            .completed .task-text{
+                text-decoration: line-through;
+                color: #777;
+                opacity: 0.85;
+            }
+
+            .task-action {
+                display: flex;
+                gap: 8px;
+            }
+
+            .icon-btn{
+                background: transparent;
+                border: 1px solid transparent;
+                padding: 6px 8px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+            .icon-btn:hover{
+                background: rgb(59, 58, 58);
+
+            }
+
+            .count{
+                margin-top: 10px;
+                color: #333;
+                font-weight: 600;
+            }
+
+            /* reponsivo */
+            @media (max-width: 520px){
+                .form-row {
+                    flex-direction: column;
+                }
+                .task-action{
+                    gap: 4px;
+                }
+            }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ================================================
+             Passo 1- HTML : Formulario e estrutura
+             ================================================ -->
+        <h1>TO-DO list (passo a passo)</h1>
+
+        <p class="apres"> Nesta aula vamos criar uma listas de tarefas dinamica: adicionar, 
+            marcar, editar, excluir e salvar localmente (local storage)</p>
+
+        <div class="form-row" aria-label="Formulario de tarefas">
+            
+            <input id="inputTarefa" type="text" placeholder="Digite uma nova tarefa e pressione Adicionar (Ou Enter)" />
+
+            <button id="btnAdicionar" class="btn">Adicionar</button>
+        
+        </div>
+
+        <!-- ===================================================
+             Passo 2 - HTML : card que contem a lista de tarefas
+             ==================================================== -->
+
+        <!-- aria-live "polite" para informar os leitores de tela que conteudo vai mudar dinamicamente  -->
+        <div class="todo-card" aria-live="polite">
+            <h3>Minhas tarefas </h3>
+
+            <!-- Lista onde serao inseridas as tarefas dinamicamente -->
+             <ul id="listaTarefas" class="todo-list"></ul>
+
+            <!-- Contador e botao auxiliares -->
+             <div class="count" id="contador">Total: 0 tarefas</div>
+    
+            <div>
+                <button id="btnLimparConcluidas" class="btn">Limpar concluidas</button>
+                <button id="btnLimparTudo" class="btn">Limpar tudo</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const inputTarefa = document.getElementById("inputTarefa");
+        const btnAdicionar = document.getElementById("btnAdicionar");
+        const listaTarefas = document.getElementById("listaTarefas");
+        const contador = document.getElementById("contador");
+        const btnLimparConcluidas = document.getElementById("btnLimparConcluidas");
+        const btnLimparTudo = document.getElementById("btnLimparTudo");
+    </script>
+</body>
+</html>

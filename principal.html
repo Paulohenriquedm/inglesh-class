@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INGLESH CLASS</title>
+    <style>
+      /* ===== RESET ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        background-color: #f5f5dc;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 50px;
+        flex-wrap: wrap;
+      }
+
+      header img {
+        border-radius: 10px;
+      }
+
+      header h1 {
+        color: #1a1a1a;
+        font-size: 2rem;
+        letter-spacing: 1px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #0077ff;
+      }
+
+      header hr {
+        width: 100%;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        background: linear-gradient(120deg, #0077ff, #00c4cc);
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+      }
+
+      .hero-texto h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .hero-texto p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 30px;
+      }
+
+      .botao {
+        background-color: white;
+        color: #0077ff;
+        border: none;
+        padding: 15px 35px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .botao:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.05);
+      }
+
+      /* ===== CARDS ===== */
+      .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 60px 20px;
+        background-color: #fafafa;
+      }
+
+      .cards h3 {
+        width: 100%;
+        text-align: center;
+        color: #0077ff;
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 300px;
+        text-align: center;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card h4 {
+        color: #222;
+        margin: 10px 0;
+      }
+
+      .card img {
+        width: 150px; /* largura fixa igual à das outras imagens */
+        height: 200px; /* altura fixa para manter proporção */
+        border-radius: 10px;
+        object-fit: cover; /* mantém a imagem preenchendo a área sem distorção */
+        margin: 10px 0;
+      }
+
+      .card p {
+        font-size: 0.95rem;
+        color: #444;
+      }
+
+      /* ===== PLANOS ===== */
+      section article {
+        text-align: center;
+        padding: 60px 20px;
+        background-color: #f5f7fa;
+      }
+
+      section article h5 {
+        font-size: 1.8rem;
+        color: #0077ff;
+        margin-bottom: 20px;
+      }
+
+      section article p {
+        font-size: 1.1rem;
+        margin: 10px 0;
+        color: #333;
+      }
+
+      section article button {
+        background-color: #0077ff;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-bottom: 15px;
+        transition: 0.3s;
+      }
+
+      section article button:hover {
+        background-color: #005fcc;
+      }
+
+      /* ===== PLANOS MELHORADO ===== */
+      section.planos {
+        background-color: #e9f0fb;
+        padding: 60px 20px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      section.planos article {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 119, 255, 0.15);
+        padding: 30px 25px;
+        max-width: 280px;
+        flex: 1 1 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      section.planos article:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(0, 119, 255, 0.25);
+      }
+
+      section.planos article h5 {
+        font-size: 1.9rem;
+        color: #0077ff;
+        margin-bottom: 15px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      section.planos article p {
+        font-size: 1.2rem;
+        color: #444;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      section.planos article button {
+        background: linear-gradient(120deg, #0077ff, #00c4cc);
+        color: white;
+        border: none;
+        padding: 15px 35px;
+        border-radius: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background 0.3s, transform 0.3s;
+        width: 100%;
+        max-width: 220px;
+      }
+
+      section.planos article button:hover {
+        background: linear-gradient(120deg, #005fcc, #009999);
+        transform: scale(1.05);
+      }
+
+      /* Responsividade */
+      @media (max-width: 768px) {
+        section.planos {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      .banana {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .planos {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 60px 20px;
+        background-color: #fafafa;
+        flex-wrap: wrap;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .plano-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        max-width: 350px;
+        padding: 25px 30px;
+        box-shadow: 0 0 0 3px transparent;
+        transition: box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .plano-card:hover {
+        box-shadow: 0 0 10px 3px #6a3aff; /* efeito roxo no hover */
+      }
+
+      .header-plano h3 {
+        font-size: 1.3rem;
+        color: #3a1078;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+
+      .header-plano p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .icone-usuario {
+        font-size: 0.85rem;
+        color: #444;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 15px;
+        border-top: 1px solid #ddd;
+        padding-top: 12px;
+      }
+
+      .preco {
+        font-size: 1.1rem;
+        color: #1a1a1a;
+        margin-bottom: 5px;
+      }
+
+      .preco strong {
+        font-weight: 700;
+      }
+
+      .descricao {
+        font-size: 0.8rem;
+        color: #999;
+        margin-bottom: 18px;
+      }
+
+      .btn-assinar {
+        background-color: #6a3aff;
+        color: white;
+        font-weight: 700;
+        padding: 14px 0;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .btn-assinar:hover {
+        background-color: #4d29cc;
+      }
+
+      .btn-demo {
+        background-color: #4d29cc;
+      }
+
+      .btn-demo:hover {
+        background-color: #3a1e99;
+      }
+
+      .beneficios {
+        list-style: none;
+        padding-left: 0;
+        font-size: 0.9rem;
+        color: #444;
+      }
+
+      .beneficios li {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .beneficios li::before {
+        content: "✔"; /* ✓ */
+        color: #6a3aff;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-weight: bold;
+      }
+
+      @media (max-width: 900px) {
+        .planos {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .plano-card {
+          max-width: 90%;
+        }
+      }
+
+      /* ===== MODAL ===== */
+      .modal-bg {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(2px);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal {
+        background: #ffffff;
+        color: #333;
+        padding: 40px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 450px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        position: relative;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .fechar-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        cursor: pointer;
+        color: #0077ff;
+        transition: 0.3s;
+      }
+
+      .fechar-modal:hover {
+        color: #00c4cc;
+      }
+
+      .modal form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .modal input {
+        padding: 12px;
+        border: 2px solid #0077ff;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      .modal input:focus {
+        border-color: #00c4cc;
+        box-shadow: 0 0 5px #00c4cc;
+      }
+
+      .modal button {
+        background: linear-gradient(120deg, #0077ff, #00c4cc);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+
+      .modal button:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+      }
+
+      @keyframes fadeIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* ===== RESPONSIVO ===== */
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav {
+          margin-top: 10px;
+        }
+
+        .cards {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-texto h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <img src="imagem/images.png" alt="html" width="150" />
+      <h1>INGLESH CLASS</h1>
+      <nav>
+        <a href="#precos">Preços</a>
+        <a href="#">Sobre a empresa</a>
+        <a href="#" id="abrir-contato">Contato</a>
+      </nav>
+      <hr />
+      <br />
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-texto">
+        <h2>Chegou a hora de dominar o inglês de verdade!</h2>
+        <p>
+          Aqui na Inglesh Class, você aprende inglês do jeito certo — com aulas
+          práticas, dinâmicas e sem enrolação. Do “Hello” ao inglês fluente, a
+          gente te acompanha em cada passo. Somos mais de 150.000 alunos
+          formados e trabalhando em empresas renomadas.
+        </p>
+        <button class="botao">Agende sua aula</button>
+      </div>
+    </section>
+
+    <!-- ===== CARDS ===== -->
+    <section class="cards">
+      <h3>Alunos Renomeados que estudaram com a gente</h3>
+
+      <article class="card">
+        <h4 style="font-size: 25px">Roberto Alves</h4>
+        <h6 style="font-size: 15px">Criador das CASAS BAHIA</h6>
+        <p>⭐⭐⭐⭐⭐</p>
+        <img src="imagem/bocade09.jpg" alt="html" width="150" />
+        <p>
+          Eu gostei muito de estudar aqui, aprendi muitos fundamentos e já
+          montei minha empresa renomeada no mercado
+        </p>
+      </article>
+
+      <article class="card">
+        <h4 style="font-size: 25px">Fernando Cleiton</h4>
+        <h6 style="font-size: 15px">Tenente-Coronel Da BAEP</h6>
+        <p>⭐⭐⭐⭐⭐</p>
+        <img src="imagem/Tiringa.jpeg" alt="html" width="250" />
+        <p>
+          Essas aulas me deram um destino e eu consegui seis vagas de emprego.
+        </p>
+      </article>
+
+      <article class="card">
+        <h4 style="font-size: 25px">Fernando Prass</h4>
+        <h6 style="font-size: 15px">Passou em 1 em harvard</h6>
+        <p>⭐⭐⭐⭐⭐</p>
+        <img src="imagem/boquinha.jpg" alt="html" width="200" />
+        <p>
+          Melhor empresa de inglês que eu já estudei. Hoje estou em Harvard!
+        </p>
+      </article>
+    </section>
+
+    <!-- ===== PLANOS ===== -->
+    <section class="planos" id="precos">
+      <div class="plano-card individual">
+        <div class="header-plano">
+          <h3>Plano Individual</h3>
+          <p>Para você</p>
+          <div class="icone-usuario">👤 Individual</div>
+        </div>
+        <p class="preco"><strong>A partir de R$127.00 por mês</strong></p>
+        <p class="preco" id="usd"><strong>-</strong></p>
+        <p class="descricao">
+          Cobrança mensal ou anual. Cancele a qualquer momento.
+        </p>
+        <button class="btn-assinar">Iniciar assinatura →</button>
+        <ul class="beneficios">
+          <li>Acesso a mais de 29.400 dos principais cursos</li>
+          <li>Preparação para certificação</li>
+          <li>Recomendações com foco em objetivo</li>
+          <li>Exercícios de codificação baseados em IA</li>
+        </ul>
+      </div>
+
+      <div class="plano-card team">
+        <div class="header-plano">
+          <h3>Plano Team</h3>
+          <p>Para sua equipe</p>
+          <div class="icone-usuario">👥 2 a 50 pessoas</div>
+        </div>
+        <p class="preco"><strong>R$ 169,00 por mês por usuário</strong></p>
+        <p class="preco" id="usdd"><strong>--</strong></p>
+        <p class="descricao">Cobrança anual. Cancele a qualquer momento.</p>
+        <button class="btn-assinar">Experimente grátis →</button>
+        <ul class="beneficios">
+          <li>Acesso a mais de 13.000 cursos conceituados</li>
+          <li>Preparação para certificação</li>
+          <li>Recomendações com foco em objetivo</li>
+          <li>Exercícios de codificação baseados em IA</li>
+          <li>Relatórios de análise e adoção</li>
+        </ul>
+      </div>
+
+      <div class="plano-card enterprise">
+        <div class="header-plano">
+          <h3>Plano Enterprise</h3>
+          <p>Para toda sua organização</p>
+          <div class="icone-usuario">👥 Mais de 20 pessoas</div>
+        </div>
+        <p class="preco destaque">
+          <strong
+            >Entre em contato com a equipe de vendas para conhecer os
+            preços</strong
+          >
+        </p>
+        <button class="btn-assinar btn-demo">
+          Solicite uma demonstração →
+        </button>
+        <ul class="beneficios">
+          <li>Acesso a mais de 30.000 cursos conceituados</li>
+          <li>Preparação para certificação</li>
+          <li>Recomendações com foco em objetivo</li>
+          <li>Exercícios de codificação baseados em IA</li>
+          <li>Análises e insights avançados</li>
+          <li>Equipe dedicada de sucesso do cliente</li>
+          <li>Coleções internacionais de cursos com 15 idiomas</li>
+          <li>Conteúdo personalizável</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== MODAL DE AGENDAMENTO ===== -->
+    <div class="modal-bg" id="modal-bg">
+      <div class="modal">
+        <span class="fechar-modal" id="fechar-modal">&times;</span>
+        <h2>Agende sua aula</h2>
+        <p>Preencha os campos abaixo e entraremos em contato com você:</p>
+
+        <form>
+          <input type="text" placeholder="Nome completo" required />
+          <input type="text" placeholder="WhatsApp ou telefone" required />
+          <input type="email" placeholder="E-mail" required />
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Selecionando elementos
+      const modalbg = document.getElementById("modal-bg");
+      const fecharBtn = document.getElementById("fechar-modal");
+      const buttons = document.querySelectorAll("button");
+      const contatoLink = document.getElementById("abrir-contato");
+
+      // Função para abrir o modal
+      function abrirModal() {
+        modalbg.style.display = "flex";
+      }
+
+      // Função para fechar o modal
+      function fecharModal() {
+        modalbg.style.display = "none";
+      }
+
+      // Abrir modal ao clicar em qualquer botão
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          abrirModal();
+        });
+      });
+
+      // Abrir modal ao clicar no link do header
+      contatoLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        abrirModal();
+      });
+
+      // Fechar modal ao clicar no "X"
+      fecharBtn.addEventListener("click", fecharModal);
+
+      // Fechar modal ao clicar fora da caixa
+      window.addEventListener("click", function (e) {
+        if (e.target === modalbg) {
+          fecharModal();
+        }
+      });
+
+      const apiurl =
+        "https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL";
+      const usdEl = document.getElementById("usd");
+      const usdEll = document.getElementById("usdd");
+
+      async function buscarCotacoes() {
+        try {
+          const resposta = await fetch(apiurl);
+
+          if (!resposta.ok) {
+            throw new Error("Erro na API: " + resposta.status);
+          }
+
+          const dados = await resposta.json();
+          const cotacaoDolar = Number(dados.USDBRL.bid); // cotação atual
+          const precoCursoUSD = 127.0; // valor do curso em reais
+          const precoCursoTeam = 169.0; //valor do curso em reais
+          // Calcula o valor em reais
+          const valorEmReais = precoCursoUSD * cotacaoDolar;
+
+          // Atualiza o texto no HTML
+          usdEl.textContent = `Reais R$:${precoCursoUSD.toFixed(
+            2
+          )} Dolar R$: ${valorEmReais.toFixed(2)}`;
+          usdEll.textContent = `Reais R$:${precoCursoTeam.toFixed(
+            2
+          )} Dolar R$: ${valorEmReais.toFixed(2)}`;
+        } catch (error) {
+          console.error("Erro ao buscar cotações:", error);
+          usdEl.textContent = "Erro ao carregar cotação 😢";
+        }
+      }
+
+      // Executa ao carregar a página
+      buscarCotacoes();
+
+      // Chama a função para buscar as cotações assim que a página carrega
+      buscarCotacoes();
+    </script>
+  </body>
+</html>

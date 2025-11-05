@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Consumo de API com JavaScript</title>
+
+  <style>
+    /* =========================================================
+       PASSO 1 — ESTILO GERAL DA PÁGINA
+       ========================================================= */
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f8fb;
+      color: #222;
+    }
+
+    .container {
+      background: white;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #003366;
+    }
+
+    p.lead {
+      text-align: center;
+      color: #555;
+    }
+
+    /* Cards para exibir resultados */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 700px) {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: #eaf3ff;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      color: #0055cc;
+    }
+
+    .card p {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    /* Botão de atualização */
+    .btn {
+      display: block;
+      background: #0055cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin: 20px auto;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: #0041a3;
+    }
+
+    /* Mensagem de status (carregando, erro, sucesso) */
+    #status {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- =========================================================
+         PASSO 0 — INTRODUÇÃO DA AULA
+         ========================================================= -->
+    <h1>Consumo de API Externa</h1>
+    <p class="lead">Hoje vamos aprender a buscar dados reais de uma API e exibi-los dinamicamente no navegador!</p>
+
+    <!-- =========================================================
+         PASSO 1 — HTML: Estrutura base para exibir os dados
+         ========================================================= -->
+    <section>
+      <h2 style="text-align:center;"> 💱 Cotações de Moedas em Tempo Real</h2>
+      <button id="btnAtualizar" class="btn">Atualizar Cotações</button>
+      <div id="status">Clique no botão para buscar as cotações...</div>
+
+      <!-- Cards onde serão exibidas as moedas -->
+      <div id="cards" class="cards">
+        <div class="card">
+          <h3>Dólar (USD)</h3>
+          <p id="usd">—</p>
+
+          <h3>Preço Maximo:</h3>
+          <p id="maxDolar"> —</p>
+
+          <h3>Preço Minimo:</h3>
+          <p id="minDolar">—</p>
+        </div>
+        <div class="card">
+          <h3>Euro (EUR)</h3>
+          <p id="eur">—</p>
+        </div>
+        <div class="card">
+          <h3>Bitcoin (BTC)</h3>
+          <p id="btc">—</p>
+        </div>
+      </div>
+    </section>
+  </div>
+<script>
+    const btnAtualizar = document.getElementById("btnAtualizar");
+    const statusMsg = document.getElementById("status");
+    const usdEl = document.getElementById("usd");
+    const eurEl = document.getElementById("eur");
+    const btcEl = document.getElementById("btc");
+    const maxDolar = document.getElementById("maxDolar");
+    const minDolar = document.getElementById("minDolar");
+
+    // Passo 2 USAR API PUBLICA que nao pede autenticacao   
+    // Ela retorna um arquivo JSON com varias moedas
+    // neste caso vamos especificar apenas 3 que nos interessam
+    //        - Vamos usar uma API pública: https://economia.awesomeapi.com.br/
+    //  - Ela retorna um JSON com várias moedas
+    const api_url = "https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL";
+    
+    // PASSO 3 Função Assincrona que busca os dados 
+    // Função assíncrona que busca os dados
+    //  Função assíncrona que busca os dados
+    //    No JavaScript, o código normalmente é síncrono — ou seja, ele executa linha por linha,
+    //    esperando cada uma terminar para ir à próxima.
+    //    Mas, quando você chama uma função assíncrona, o JavaScript não precisa esperar ela terminar
+    //    para continuar executando o resto do código.
+    //    Isso é útil, por exemplo, quando você está buscando dados da internet (o que pode demorar alguns segundos).
+
+    async function buscarCotacoes() {
+         // Atualiza status visual
+        statusMsg.textContent = "Buscando Dados...";
+
+        try{
+             /* Faz requisição GET à API
+        O nome fetch significa literalmente “buscar”
+        O fetch() é uma função nativa do JavaScript usada para fazer requisições HTTP
+        — ou seja, buscar (ou enviar) dados para um servidor ou uma API pela internet
+        -> O JavaScript envia uma requisição HTTP GET para a URL especificada.
+        -> O comando fetch() retorna uma Promise, que ficará pendente até que o servidor responda.
+        -> Em JavaScript, uma Promise (em português, “promessa”) é um objeto que
+        -> representa uma operação que ainda não terminou,
+        -> mas vai retornar um resultado no futuro — seja um sucesso ou um erro.
+        -> O await pausa a execução da função até a resposta chegar.
+        -> Quando a resposta chega, ela é armazenada na variável resposta.
+         */
+            const resposta = await fetch(api_url);
+            // Comando  O que faz
+        // fetch(url) Envia uma requisição HTTP e retorna uma Promise com a resposta
+        // await fetch(url) Espera a resposta chegar antes de continuar a execução
+        // resposta.json()  Converte o corpo da resposta em formato JSON
+        // resposta.status  Retorna o código HTTP (ex: 200, 404, 500)
+        // resposta.ok  Retorna true se a resposta for bem-sucedida (status 200–299)
+
+        // Testa se resposta foi bem sucedida
+            if (!resposta.ok) {
+                throw new Error("Entrou na API e nao achou nada" + resposta.status);
+            };
+            
+        // Converte resposta JSON em objeto JS
+
+            const dados = await resposta.json();
+            console.log("Dados recebidos:", dados);
+             /*
+        ask (ou "oferta") Preço de compra pelo usuário.
+             É o preço que você paga para comprar a moeda estrangeira (ex: USD) da corretora/casa de câmbio.
+        bid (ou "demanda") Preço de venda pelo usuário.
+             É o preço que você recebe ao vender a moeda estrangeira (ex: USD) para a corretora/casa de câmbio.    
+        varBid Variação absoluta do valor em relação ao fechamento anterior.    
+        pctChange Variação percentual do valor em relação ao fechamento anterior.
+        high Preço máximo que a moeda atingiu no dia (ou no período de referência).
+        low Preço mínimo que a moeda atingiu no dia (ou no período de referência).
+        */
+            // PASSO 3.5 preencher os html com os dados retornados na consulta 
+        //    - Cada propriedade contém o campo "bid" (valor de compra)
+        //    - ou .high maximo      .low minimo (da moeda no dia)
+            usdEl.textContent = "R$: " + Number(dados.USDBRL.bid).toFixed(2); // toFixed (numero) - serve para reduzir as casas decimais depois da ,
+            eurEl.textContent = "R$: " + Number(dados.EURBRL.bid).toFixed(2);
+            btcEl.textContent = "R$: " + Number(dados.BTCBRL.bid).toFixed(2);
+            maxDolar.textContent = "R$: " + Number(dados.USDBRL.high).toFixed(2);
+            minDolar.textContent = "R$: " + Number(dados.USDBRL.low).toFixed(2);
+
+            // Atualiza status
+            
+            const dataHora = new Date().toLocaleTimeString("pt-BR"); // Esta linha busca a hora do "pt-BR"
+            statusMsg.textContent = "Atualizado em " + dataHora;
+        } catch (erro) {
+            //trata possiveis erros de rede ou conversao 
+            console.error("Erro ao buscar dados:", erro);
+            statusMsg.textContent = "Nao foi possivel buscar, Nem achou API";
+
+        }
+    };
+
+    // Passo 3.6 monitor clique do botao para atualizar 
+
+    btnAtualizar.addEventListener("click", buscarCotacoes);
+
+
+    // atualizar automaticamente
+    setInterval(buscarCotacoes, 60000); // 1 minuto
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: bisque;
+        font-family: Arial;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      section {
+        border: 2px solid blue;
+        border-radius: 10px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: aliceblue;
+        max-width: 900px;
+        box-shadow: 0 0 8px black;
+      }
+
+      .block .box {
+        display: block;
+      }
+
+      .inline .box {
+        display: inline;
+      }
+
+      .inline-block .box {
+        display: inline-block;
+        width: 150px;
+        height: 30px;
+      }
+
+      .flex {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(228, 233, 159);
+        padding: 10px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        background-color: yellow;
+      }
+
+      .none .box {
+        display: none;
+      }
+
+      .hidden .box {
+        visibility: hidden;
+      }
+
+      .table {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+        background-color: rgb(57, 221, 16);
+      }
+
+      .tablerow {
+        display: table-row;
+      }
+      /* nth child pega apenas a linha X, no caso a linha 1 */
+      .tablerow:nth-child(odd){
+        display: table-row;
+        background-color: rgb(218, 116, 116);
+      }
+
+      .tablerow:nth-child(even){
+        display: table-row;
+        background-color: rgb(18, 255, 77);
+      }
+
+      .tablecell {
+        display: table-cell;
+        border: 1px solid rgb(0, 0, 0);
+        padding: 10px;
+      }
+
+      .inline-flex {
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+        background-color: yellow;
+        padding: 8px;
+      }
+      .box {
+        background-color: rgb(203, 236, 236);
+        margin: 20px;
+        padding: 10px;
+        font-weight: bold; /*deixa negrito*/
+        text-align: center;
+        border: 2px solid blue;
+      }
+
+      .vasco{
+        background-color: red;
+      }
+
+      .nota {
+        text-align: center;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    tudo em html é um elemento /// 
+     div e um agrupamento de elementos ///
+     section agrupamento por sessão
+      -->
+    <h1>Sobre a propriedade DISPLAY</h1>
+    <section class="block">
+      <h2>display:block</h2>
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+      <p class="nota">
+        Cada elemento ocupa uma linha inteira(um abaixo do outro)
+      </p>
+    </section>
+
+    <section class="inline">
+      <h2>display:inline</h2>
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+      <p class="nota">
+        Os elementos ficam lado a lado, nao aceitam largura e altura definidos
+      </p>
+    </section>
+
+    <section class="inline-block">
+      <h2>display:inline-block</h2>
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+      <p class="nota">
+        Os elementos ficam lado a lado, so que aceitam largura e altura
+        definidos
+      </p>
+    </section>
+
+    <section>
+      <h2>display:flex</h2>
+
+      <div class="flex">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+      </div>
+      <p class="nota">
+        Os elementos ficam lado a lado, com controle facil de alinhamento
+      </p>
+    </section>
+
+    <section>
+      <h2>display: grid</h2>
+      <div class="grid">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+      </div>
+      <p class="nota">Organiza os elementos em linhas e colunas.</p>
+    </section>
+
+    <section class="none">
+      <h2>display: none</h2>
+
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+
+      <p class="nota">
+        os elementos com display:none nao apareceram e nem ocuparam espaco
+      </p>
+    </section>
+
+    <section class="hidden">
+      <h2>visibility: hidden</h2>
+
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+
+      <p class="nota">
+        os elementos com visibility:hidden nao apareceram mas ocuparam espaco
+      </p>
+    </section>
+
+    <section>
+      <h2>Display:table / table row / table-cell</h2>
+      <div class="table">
+        <div class="tablerow">
+          <div class="tablecell">A</div>
+          <div class="tablecell">B</div>
+          <div class="tablecell">C</div>
+        </div>
+      </div>
+      <p class="nota">Simula o comportamento de uma tabela usando div</p>
+    </section>
+
+    <section>
+      <h2>Display: inline-flex</h2>
+      <div class="inline-flex">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+      </div>
+      <p class="nota">
+        Semelhante ao flex, mas o container se comporta como um elemento inline
+      </p>
+    </section>
+
+    <section>
+      <h2>Display:table / table row / table-cell</h2>
+      <div class="table">
+        <div class="tablerow">
+          <div class="tablecell">A</div>
+          <div class="tablecell">B</div>
+          <div class="tablecell">C</div>
+        </div>
+        <div class="tablerow">
+          <div class="tablecell">A</div>
+          <div class="tablecell">B</div>
+          <div class="tablecell">C</div>
+        </div>
+        <div class="tablerow">
+          <div class="tablecell">A</div>
+          <div class="tablecell">B</div>
+          <div class="tablecell">C</div>
+        </div>
+      </div>
+      <p class="nota">Simula o comportamento de uma tabela usando div</p>
+    </section>
+  </body>
+</html>

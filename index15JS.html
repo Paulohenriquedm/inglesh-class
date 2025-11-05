@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+            .container{
+                background-color: rgb(250, 243, 234);
+                margin: 0 auto;
+                max-width: 1200px;
+                padding: 0px;
+                border: 5px solid rgb(0, 0, 0);
+                box-shadow: 0px 0px 10px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+                gap: 20px; /* espaço entre as sections */
+                padding: 10px 15px 400px 15px;
+            }
+
+            h2{
+                text-align: center;
+            }
+
+            h1{
+                font-size: 35px;
+                grid-column: 1 / -1;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+
+            }
+            section{
+                background: beige;
+                padding: 20px;
+                border-radius: 15px;
+                border: 4px solid rgb(81, 81, 87);
+            }
+
+            button{
+                background: black;
+                color: white;
+                cursor: pointer;
+                padding: 5px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            button:hover{
+                background: green;
+            }
+
+            .resultado{
+                background-color: rgb(157, 157, 240);
+                padding: 10px;
+                color: black;
+                border-radius: 10px;
+                margin: 10px;
+                border: 2px solid blueviolet
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TRES SEÇÕES</h1>
+        <section>
+            <h2>Sobre o FOR</h2>
+            <p>No HTML criamos um botão para executar o laço <b>for</b> e uma area
+          para exibir o resultado</p>
+            <button id="btnFor" class="button">Executar o For</button>
+            <div id="btnForsaida" class="resultado"></div>
+
+        </section>
+
+        <section>
+            <h2>Sobre o WHILE</h2>
+            <p>Agora acionamos o botão para o laço <b>While</b> que executa
+          enquanto a condição for verdadeira</p>
+            <button id="btnWhile" class="button">Executar o While</button>
+            <div id="btnWhilesaida" class="resultado"></div>
+
+        </section>
+
+        <section>
+            <h2>Sobre o DO WHILE</h2>
+            <p>O <b>Do While</b> garante que o codigo seja executado pelo menos uma vez</p>
+            <button id="btnDowhile" class="button">Executar o Do While</button>
+            <div id="btnDowhilesaida" class="resultado"></div>
+
+        </section>
+
+    </div>
+
+    <script>
+        const btnFor = document.getElementById("btnFor");
+        btnFor.addEventListener("click", function(){
+            let texto = "";
+            const presidentes = [
+            { nome: "Joe Biden", pais: "Estados Unidos" },
+            { nome: "Emmanuel Macron", pais: "França" },
+            { nome: "Luiz Inácio Lula da Silva", pais: "Brasil" },
+            { nome: "Olaf Scholz", pais: "Alemanha" },
+            { nome: "Fumio Kishida", pais: "Japão" },
+            { nome: "Pedro Sánchez", pais: "Espanha" },
+            { nome: "Rishi Sunak", pais: "Reino Unido" },
+            { nome: "Justin Trudeau", pais: "Canadá" },
+            { nome: "Giorgia Meloni", pais: "Itália" },
+            { nome: "Andrés Manuel López Obrador", pais: "México" }
+            ];
+
+            for(let i=0; i < presidentes.length; i++ ){
+                texto += presidentes[i].nome + " - " + presidentes[i].pais + "\n";
+
+            }
+             document.getElementById("btnForsaida").innerHTML = texto.replace(/\n/g, "<br>");
+        });
+
+        const btnWhile = document.getElementById("btnWhile");
+        btnWhile.addEventListener("click", function(){
+            let texto = "";
+            const cidades = [
+            { cidade: "São Paulo", pais: "Brasil" },
+            { cidade: "Nova York", pais: "EUA" },
+            { cidade: "Tóquio", pais: "Japão" },
+            { cidade: "Paris", pais: "França" },
+            { cidade: "Londres", pais: "Reino Unido" },
+            { cidade: "Toronto", pais: "Canadá" },
+            { cidade: "Buenos Aires", pais: "Argentina" },
+            { cidade: "Roma", pais: "Itália" },
+            { cidade: "Madri", pais: "Espanha" },
+            { cidade: "Pequim", pais: "China" },
+            { cidade: "Cidade do Cabo", pais: "África do Sul" },
+            { cidade: "Lisboa", pais: "Portugal" },
+            { cidade: "Sydney", pais: "Austrália" },
+            { cidade: "Seul", pais: "Coreia do Sul" },
+            { cidade: "Moscou", pais: "Rússia" },
+            { cidade: "Cidade do México", pais: "México" },
+            { cidade: "Berlim", pais: "Alemanha" },
+            { cidade: "Amsterdã", pais: "Holanda" },
+            { cidade: "Los Angeles", pais: "EUA" },
+            { cidade: "Viena", pais: "Áustria" }
+            ];
+            let i = 0;
+            while( i < cidades.length ){
+             texto += "Cidade: " + cidades[i].cidade + " - País: " + cidades[i].pais + "\n";
+                i ++;
+            }
+            document.getElementById("btnWhilesaida").innerHTML = texto.replace(/\n/g, "<br>");
+        });
+
+        const btnDowhile = document.getElementById("btnDowhile");
+        btnDowhile.addEventListener("click", function(){
+            const produtos = [
+            { nome: "Notebook", preco: 3500 },
+            { nome: "Smartphone", preco: 2200 },
+            { nome: "Monitor 24\"", preco: 899 },
+            { nome: "Teclado Mecânico", preco: 499 },
+            { nome: "Mouse Gamer", preco: 199 },
+            { nome: "Impressora", preco: 750 },
+            { nome: "Cadeira Gamer", preco: 1200 },
+            { nome: "Headset Bluetooth", preco: 380 },
+            { nome: "Caixa de Som", preco: 250 },
+            { nome: "Pen Drive 64GB", preco: 70 },
+            { nome: "HD Externo 1TB", preco: 430 },
+            { nome: "SSD 512GB", preco: 460 },
+            { nome: "Roteador Wi-Fi 6", preco: 560 },
+            { nome: "Tablet 10\"", preco: 1600 },
+            { nome: "Webcam Full HD", preco: 290 },
+            { nome: "Microfone USB", preco: 390 },
+            { nome: "Placa de Vídeo", preco: 3200 },
+            { nome: "Fonte 650W", preco: 420 },
+            { nome: "Cooler CPU", preco: 180 },
+            { nome: "Controle sem fio", preco: 260 }
+            ];
+            let texto = "";
+            let i = 0;
+            do{
+                texto += "Nome: " + produtos[i].nome + "\n" + " Preço: " + produtos[i].preco + "\n";
+                i++;
+                
+            } while (i < produtos.length);
+            document.getElementById("btnDowhilesaida").innerHTML = texto.replace(/\n/g, "<br>");
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsividade</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial;
+        margin: 0;
+        padding: 20px;
+        background-color: #c6eef8f6;
+        color: black;
+      }
+
+      h1 {
+        text-align: center;
+        color: rgb(219, 92, 60);
+      }
+
+      p {
+        font-size: 35px;
+      }
+
+      .container {
+        width: 100%; /* largura  */
+        max-width: 1920px; /*evita que fique muito larga em tela grandes */
+        margin: 0 auto; /*Centraliza horizontalmente*/
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 5px 150px black;
+      }
+
+      .site-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* ← distribui horizontalmente */
+        align-items: center; /* ← centraliza os itens verticalmente */
+        flex-wrap: wrap; /*quebra linhas em tela pequena */
+        padding: 10px 0;
+        gap: 15px;
+      }
+
+      .site-nav a {
+        margin: 0 10px;
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      .site-nav a:hover {
+        color: rgb(219, 92, 60);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: yellow;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="site-header">
+        <a href="globo.com" class="logo">
+          <img src="imagem/logo_senai.svg" alt="Senai" width="400px" />
+        </a>        
+        <nav class="site-nav">
+          <a href="#"> Inicio </a>
+          <a href="#"> Sobre mim </a>
+          <a href="#"> Contato </a>
+        </nav>
+      </header>
+      <h1>Pagina Responsiva</h1>
+      <p>Vamos aprender a ajustar o layout para diferentes tamanhos de tela</p>
+    </div>
+  </body>
+</html>

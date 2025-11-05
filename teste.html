@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio Responsivo</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f0a500;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    /* Projetos com Flexbox */
+    .projetos {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .projeto {
+      background: #e0e7ff;
+      flex: 1 1 calc(33.333% - 20px); /* 3 colunas com espaçamento */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .projeto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Imagem exemplo */
+    .projeto img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* Contato */
+    .contato a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contato a:hover {
+      color: #f06e3b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #ddd;
+      font-size: 0.9rem;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      .projeto {
+        flex: 1 1 calc(50% - 20px); /* 2 colunas */
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 10px 5px 0 5px;
+        display: inline-block;
+      }
+
+      .projeto {
+        flex: 1 1 100%; /* 1 coluna */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meu Portfólio</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2>Sobre Mim</h2>
+      <p>Olá! Sou um desenvolvedor web apaixonado por criar sites bonitos e funcionais. Atualmente estou focado em aprender HTML, CSS e design responsivo.</p>
+    </section>
+
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <div class="projetos">
+        <div class="projeto">
+          <img src="https://via.placeholder.com/300x150?text=Projeto+1" alt="Projeto 1" />
+          <h3>Projeto 1</h3>
+          <p>Site institucional para uma empresa fictícia, criado com HTML e CSS puro.</p>
+        </div>
+        <div class="projeto">
+          <img src="https://via.placeholder.com/300x150?text=Projeto+2" alt="Projeto 2" />
+          <h3>Projeto 2</h3>
+          <p>Landing page responsiva para lançamento de produto.</p>
+        </div>
+        <div class="projeto">
+          <img src="https://via.placeholder.com/300x150?text=Projeto+3" alt="Projeto 3" />
+          <h3>Projeto 3</h3>
+          <p>Portfólio pessoal com design moderno e flexível.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contato">
+      <h2>Contato</h2>
+      <p>Quer conversar? Me envie um e-mail: <a href="mailto:email@exemplo.com">email@exemplo.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 - Desenvolvido por Você</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            font-size: 30px;
+            text-align: center;
+            padding: 10px;
+        }
+
+
+        .container{
+            width: 90%;
+            max-width: 1100px;
+            justify-content: center;
+            margin: 0 auto;
+            border-radius: 10px;
+            background-color: rgb(196, 230, 230);
+            padding: 30px;
+        }
+
+
+        .tetodois {
+            display: grid;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        }
+
+        .tetodois a{
+            text-align: right;
+            font-size: 25px;
+            
+        }
+
+        .teto{
+            text-align: center;
+        }
+
+        .hero .imgum  {
+            max-width: 100%;
+            max-height: 100%;
+            margin: 0px auto
+        }
+
+        .hero{
+            display: grid;
+            
+            /* 1fr: Cria uma coluna que ocupa toda a largura disponível
+            1fr 1fr = 2 colunas de tamanho igual
+            repeat(3, 1fr) = 3 colunas de tamanho igual
+            2fr 1fr = 2 colunas, sendo a primeira com o dobro da segunda */
+
+            grid-template-columns: 1fr; /* conceito de mobile first ou seja, adote como padrão 1 coluna. */
+            /* mais a frente usaremos o @media que vai redefinir este configuração para outros tamanhos de tela */
+            gap: 20px;
+            align-items: center;
+            background: #eaf3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .btm{
+            background: #0055cc;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+    <header class="teto">
+        <h1>Meu site teste</h1>
+        <img src="imagem/logo_senai_png.png" alt="Senai" width="200">
+        <nav class="tetodois">
+            <a href="#"> Home</a>
+            <a href="#"> Produtos</a>
+            <a href="#"> Equipe</a>
+            <a href="#"> Contato</a>
+        </nav>
+    </header>
+
+    <hr>
+    <br>
+    <section class="hero"> 
+        <div class="hero-texto">
+        <h2>PAO COMPLETO</h2>
+        <p>Como fazer pão abaixo</p>
+        <a href="#" class="btn">Saiba mais</a>
+        <img class="imgum" src="imagem/pao com manteiga e faca.jpg" alt="Imagem" width="200">
+        </div>
+    </section>
+
+    <section>
+        <article>
+            <img src="imagem/mantega.jpg" alt="Produto1">
+            <p>Manteiga</p>
+        </article>
+
+        <article>
+            <img src="imagem/pao.jpg" alt="Produto2">
+            <p>Pao</p>
+        </article>
+
+        <article>
+            <img src="imagem/faca.jpg" alt="Produto3">
+            <p>faca</p>
+
+        </article>
+
+        <footer>Desenvolvido por Paulo Henrique</footer>
+    </section>
+
+
+    </div>
+</body>
+</html>

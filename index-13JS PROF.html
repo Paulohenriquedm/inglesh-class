@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página Responsiva do Curso</title>
+
+  <style>
+    /* ===========================================
+       PASSO 1 — RESET E ESTILO BÁSICO DO CORPO
+       =========================================== */
+
+    /* Reset básico — garante que padding e border 
+       não aumentem o tamanho total dos elementos */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Corpo da página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f6f8fb;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      color: #003366;
+    }
+
+    /* ===========================================
+       PASSO 2 — CONTAINER CENTRAL
+       =========================================== */
+    .container {
+      width: 90%;         /* largura relativa — se adapta à tela */
+      max-width: 1100px;  /* largura máxima para não esticar demais */
+      margin: 0 auto;     /* centraliza horizontalmente */
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* ===========================================
+       PASSO 3 — CABEÇALHO COM LOGO E MENU
+       =========================================== */
+    .site-header {
+      display: flex;
+      justify-content: space-between; /* separa logo e menu */
+      align-items: center;
+      flex-wrap: wrap;  /*quebra linha em telas pequenas */
+      padding: 10px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: xx-large;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: #0055cc;
+      padding: 6px 10px;
+      border-radius: 5px;
+    }
+
+    .site-nav a:hover {
+      background: #a9b0c7;
+    }
+
+    /* ===========================================
+       PASSO 4 — HERO SECTION (BANNER)
+       =========================================== */
+    .hero {
+      display: grid;
+      
+      /* 1fr: Cria uma coluna que ocupa toda a largura disponível
+      1fr 1fr = 2 colunas de tamanho igual
+      repeat(3, 1fr) = 3 colunas de tamanho igual
+      2fr 1fr = 2 colunas, sendo a primeira com o dobro da segunda */
+
+      grid-template-columns: 1fr; /* conceito de mobile first ou seja, adote como padrão 1 coluna. */
+      /* mais a frente usaremos o @media que vai redefinir este configuração para outros tamanhos de tela */
+      gap: 20px;
+      align-items: center;
+      background: #47464a;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      background: #0055cc;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    /* ===========================================
+       PASSO 5 — CARDS COM GRID
+       =========================================== */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr; /* mobile first: 1 coluna */
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+
+    /* ===========================================
+       PASSO 6 — MEDIA QUERIES (BREAKPOINTS)
+       =========================================== */
+
+    /* Quando a tela for >= 700px (tablets e acima) */
+    @media (min-width: 700px) {
+      .hero {
+        grid-template-columns: 1fr 1fr; /* texto + imagem lado a lado */
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+      }
+    }
+
+    /* Quando a tela for >= 1000px (desktops) */
+    @media (min-width: 1000px) {
+      .cards {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+      }
+    }
+
+    /* ===========================================
+       PASSO 7 — RODAPÉ
+       =========================================== */
+    .site-footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===========================================
+       PASSO 2 — CONTAINER CENTRAL -Encerra depis do Footer
+       =========================================== -->
+  <div class="container">
+
+    <!-- ===========================================
+         PASSO 3 — CABEÇALHO COM LOGO E MENU
+         =========================================== -->
+    <header class="site-header">
+      <a href="https://sp.senai.br/unidade/campinas/" class="logo">
+        <img src="imagens/logo_senai.svg" alt="Logo HTML" width="240">
+        <!-- O <span> está sendo usado para isolar o texto "Minha Página Responsiva" dentro do link da logo, permitindo estilizá-lo separadamente se necessário. -->
+        <span>Minha Página Responsiva </span>
+      </a>
+      <nav class="site-nav">
+        <a href="#">Início</a>
+        <a href="#">Cursos</a>
+        <a href="#">Contato</a>
+      </nav>
+    </header>
+
+    <!-- ===========================================
+         PASSO 4 — HERO SECTION
+         Vem do conceito de "herói" - é a parte mais importante e destacada
+         Simplificando é uma seção de banner principal da página.
+         =========================================== -->
+    <section class="hero">
+      <div class="hero-texto">
+        <h2>Crie páginas que se adaptam a qualquer tela</h2>
+        <p id="mensagem">Vamos aplicar os princípios de design responsivo com HTML e CSS.</p>
+        <a href="#" class="btn">Saiba mais</a>
+        <button id="btnMensagem" class="btn">Clique para interagir</button>  
+    </div>
+      <img src="imagens/html5.png" alt="Imagem HTML5" />
+    </section>
+
+    <!-- ===========================================
+         PASSO 5 — CARDS COM GRID
+         =========================================== -->
+    <section class="cards">
+      <article class="card">
+        
+        <img src="imagens/walk.gif" alt="Ícone">
+        <h3>Layout fluido</h3>
+        <p>Usando porcentagens e max-width para adaptar ao tamanho da tela.</p>
+      </article>
+
+      <article class="card">
+        <img src="imagens/css3.png" alt="Ícone">
+        <h3>Flexbox</h3>
+        <p>Controle de alinhamento e empilhamento responsivo.</p>
+      </article>
+
+      <article class="card">
+        <img src="imagens/logo_senai_png.png" alt="Ícone">
+        <h3>Grid</h3>
+        <p>Distribuição precisa de colunas e linhas no layout.</p>
+      </article>
+    </section>
+
+    <!-- ===========================================
+         PASSO 7 — RODAPÉ
+         =========================================== -->
+    <footer class="site-footer">
+      © 2025 — Exemplo de página responsiva
+    </footer>
+
+  </div>
+  
+  <!-- =================================
+  BLOCO JAVA SCRIPT A A PARTIR DAQUI
+  ================================= -->
+  <script>
+     //Mostra um alerta ao abrir a página
+     alert("Bem vindo a sua primeira construção com Java Script");
+     console.log ("Pagina carregada com sucesso!");
+
+
+     //Seleciona o botao para a variavel "botao" pelo ID do elemento botao colocado no html
+     const botao = document.getElementById("btnMensagem");
+     const mensagem = document.getElementById("mensagem");
+
+     botao.addEventListener("click", function(){
+        
+          if (mensagem.textContent === "Você Interagiu com o botão!!!") {
+
+              mensagem.textContent = "Vamos aplicar os princípios de design responsivo com HTML e CSS.";
+              document.querySelector (".hero").style.backgroundColor = "#d1f0ff";
+              console.log ("Estou dentro do If da função ");
+
+          } else {
+             document.querySelector (".hero-texto h2").textContent = "Colocando o Java Script em Ação!!!";            
+             mensagem.textContent = "Você Interagiu com o botão!!!";
+             document.querySelector (".hero").style.backgroundColor = "##47464a"; 
+             console.log ("Estou dentro do else da função ");
+          }
+    
+           
+
+        
+        
+        console.log ("Estou dentro da função do click do botao");
+
+
+     });
+
+
+  </script>
+</body>
+</html>
