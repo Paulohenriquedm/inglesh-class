@@ -701,10 +701,10 @@
           // Atualiza o texto no HTML
           usdEl.textContent = `Reais R$:${precoCursoUSD.toFixed(
             2
-          )} Dolar R$: ${valorEmReais.toFixed(2)}`;
+          )} Dolar $: ${valorEmReais.toFixed(2)}`;
           usdEll.textContent = `Reais R$:${precoCursoTeam.toFixed(
             2
-          )} Dolar R$: ${valorEmReais.toFixed(2)}`;
+          )} Dolar $: ${valorEmReais.toFixed(2)}`;
         } catch (error) {
           console.error("Erro ao buscar cotações:", error);
           usdEl.textContent = "Erro ao carregar cotação 😢";
